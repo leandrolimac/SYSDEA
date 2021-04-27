@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SySDEAProject.Models.LocalEntidade>
+
+@{
+    ViewBag.Title = "ListaFiliais";
+}
+
+<h2>Filiais</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Entidade.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailContato)
+        </th>      
+        
+        <th>
+            @Html.DisplayNameFor(model => model.suspensa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Entidade.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(ModelItem => item.tel1)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.emailContato)
+        </td>
+        
+
+        <td>
+            @Html.DisplayFor(modelItem => item.suspensa)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id = item.idLocalEntidade }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.idLocalEntidade }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id = item.idLocalEntidade })
+        </td>
+    </tr>
+}
+
+</table>

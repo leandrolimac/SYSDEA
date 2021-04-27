@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Painel do Piloto";
+}
+
+<h2>Painel de Piloto</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="row">
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Painel de horários", "Painel", "Horarios")</h2>
+        <p>
+            Visualizar agenda da entidade
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Visualizar agendamento ativo", "ConsultarAgendamentoAtivo", "Horarios")</h2>
+        <p>
+            Exibe detalhes do agendamento atual do piloto
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Alterar senha", "ChangePassword","Manage")</h2>
+    </div>
+</div>

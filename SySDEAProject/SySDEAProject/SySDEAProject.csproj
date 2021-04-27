@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8543D8B9-F9DE-4540-9447-78315D1F7A92}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SySDEAProject</RootNamespace>
+    <AssemblyName>SySDEAProject</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BotDetect, Version=4.2.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net46\BotDetect.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.2.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net46\BotDetect.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AudiosQuestoesController.cs" />
+    <Compile Include="Controllers\AvaliacoesController.cs" />
+    <Compile Include="Controllers\AvaliadoresController.cs" />
+    <Compile Include="Controllers\CustomRolesController.cs" />
+    <Compile Include="Controllers\EmpresasController.cs" />
+    <Compile Include="Controllers\EntidadesController.cs" />
+    <Compile Include="Controllers\FiscaisController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HorariosController.cs" />
+    <Compile Include="Controllers\ImagensQuestoesController.cs" />
+    <Compile Include="Controllers\LocaisEntidadesController.cs" />
+    <Compile Include="Controllers\LocutoresController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PartesOriginaisController.cs" />
+    <Compile Include="Controllers\PedacosQuestaoController.cs" />
+    <Compile Include="Controllers\PilotosController.cs" />
+    <Compile Include="Controllers\QueriesController.cs" />
+    <Compile Include="Controllers\QuestoesController.cs" />
+    <Compile Include="Controllers\SotaquesController.cs" />
+    <Compile Include="Controllers\TemasController.cs" />
+    <Compile Include="Controllers\TextosQuestoesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VersoesOriginaisController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetUserClaims.cs" />
+    <Compile Include="Models\AspNetUserLogins.cs" />
+    <Compile Include="Models\AspNetUserRoles.cs" />
+    <Compile Include="Models\AtribuirNotaViewModel.cs" />
+    <Compile Include="Models\AudioProva.cs" />
+    <Compile Include="Models\AudioQuestao.cs" />
+    <Compile Include="Models\Avaliacao.cs" />
+    <Compile Include="Models\Avaliador.cs" />
+    <Compile Include="Models\AvaliadorXEntidade.cs" />
+    <Compile Include="Models\BuscaCEP.cs" />
+    <Compile Include="Models\BuscaHorarioViewModel.cs" />
+    <Compile Include="Models\ConfigSySDEA.cs" />
+    <Compile Include="Models\ContextoNota.cs" />
+    <Compile Include="Models\CustomRoles.cs" />
+    <Compile Include="Models\CustomUserClaims.cs" />
+    <Compile Include="Models\EmailFormModel.cs" />
+    <Compile Include="Models\EmailModelo.cs" />
+    <Compile Include="Models\EmailSySDEA.cs" />
+    <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Entidade.cs" />
+    <Compile Include="Models\EntidadeLogin.cs" />
+    <Compile Include="Models\FiscADM.cs" />
+    <Compile Include="Models\Fiscal.cs" />
+    <Compile Include="Models\Fiscalizacao.cs" />
+    <Compile Include="Models\FiscEntrevista.cs" />
+    <Compile Include="Models\FiscParecer.cs" />
+    <Compile Include="Models\Historico.cs" />
+    <Compile Include="Models\Horario.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImagemPiloto.cs" />
+    <Compile Include="Models\ImagemQuestao.cs" />
+    <Compile Include="Models\InstrucaoQuestao.cs" />
+    <Compile Include="Models\Interacao.cs" />
+    <Compile Include="Models\LocalEntidade.cs" />
+    <Compile Include="Models\Locutor.cs" />
+    <Compile Include="Models\LocutorXSotaque.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MetaData.cs" />
+    <Compile Include="Models\NewCommentEmail.cs" />
+    <Compile Include="Models\NivelSDEA.cs" />
+    <Compile Include="Models\Nota.cs" />
+    <Compile Include="Models\NotaAvaliador.cs" />
+    <Compile Include="Models\NotaFisc.cs" />
+    <Compile Include="Models\ParteOriginal.cs" />
+    <Compile Include="Models\ParteProva.cs" />
+    <Compile Include="Models\PartialClasses.cs" />
+    <Compile Include="Models\PedacoQuestao.cs" />
+    <Compile Include="Models\Piloto.cs" />
+    <Compile Include="Models\Questao.cs" />
+    <Compile Include="Models\Recurso.cs" />
+    <Compile Include="Models\RegistroAtividade.cs" />
+    <Compile Include="Models\SolicitacaoHorario.cs" />
+    <Compile Include="Models\Sotaque.cs" />
+    <Compile Include="Models\SySDEAContext.cs" />
+    <Compile Include="Models\Tema.cs" />
+    <Compile Include="Models\TextoQuestao.cs" />
+    <Compile Include="Models\UserPessoa.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuarioLogin.cs" />
+    <Compile Include="Models\ValidateAttributes.cs" />
+    <Compile Include="Models\VersaoOriginal.cs" />
+    <Compile Include="Models\VersaoProva.cs" />
+    <Compile Include="Models\VideoProva.cs" />
+    <Compile Include="Models\ViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ConsultarAeronauta\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <None Include="Service References\ConsultarAeronauta\configuration91.svcinfo" />
+    <None Include="Service References\ConsultarAeronauta\configuration.svcinfo" />
+    <None Include="Service References\ConsultarAeronauta\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <None Include="Service References\ConsultarAeronauta\AeronautaService.wsdl" />
+    <Content Include="Service References\ConsultarAeronauta\SySDEAProject.ConsultarAeronauta.AeronautaType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Views\Account\AcessoNegado.cshtml" />
+    <Content Include="Views\Account\AcessoPilotos.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\PessoaExistente.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Erro.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\Home\Sent.cshtml" />
+    <Content Include="Views\Home\Sucesso.cshtml" />
+    <Content Include="Views\Manage\CadastroPiloto.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\configLocalEntidade.cshtml" />
+    <Content Include="Views\Manage\configuracoesEntidade.cshtml" />
+    <Content Include="Views\Manage\ContatarEntidade.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\PainelAdmin.cshtml" />
+    <Content Include="Views\Manage\PainelEntidade.cshtml" />
+    <Content Include="Views\Manage\PainelPiloto.cshtml" />
+    <Content Include="Views\Manage\PainelUsuario.cshtml" />
+    <Content Include="Views\Manage\PartialBancoQuestoes.cshtml" />
+    <Content Include="Views\Manage\PartialPainelAdmin.cshtml" />
+    <Content Include="Views\Manage\PartialPainelCadastroPiloto.cshtml" />
+    <Content Include="Views\Manage\PartialPainelEntidade.cshtml" />
+    <Content Include="Views\Manage\PartialPainelFiscal.cshtml" />
+    <Content Include="Views\Manage\PartialPainelPiloto.cshtml" />
+    <Content Include="Views\Shared\AuthorizeFailed.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_PartialCEP.cshtml" />
+    <Content Include="Views\Shared\_PartialCEP2.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CustomBoolSimNao.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CustomStatusHorario.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CustomTipoAvaliador.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Web.config.token" />
+    <Content Include="Views\AudiosQuestoes\Create.cshtml" />
+    <Content Include="Views\AudiosQuestoes\Delete.cshtml" />
+    <Content Include="Views\AudiosQuestoes\Details.cshtml" />
+    <Content Include="Views\AudiosQuestoes\Edit.cshtml" />
+    <Content Include="Views\AudiosQuestoes\Index.cshtml" />
+    <Content Include="Views\Avaliacoes\AtribuirNota.cshtml" />
+    <Content Include="Views\Avaliacoes\AvaliacoesEmProgresso.cshtml" />
+    <Content Include="Views\Avaliacoes\Details.cshtml" />
+    <Content Include="Views\Avaliacoes\EncerrarAvaliacao.cshtml" />
+    <Content Include="Views\Avaliacoes\Index.cshtml" />
+    <Content Include="Views\Avaliacoes\IniciarAvaliacao.cshtml" />
+    <Content Include="Views\Avaliadores\AdicionarEntidade.cshtml" />
+    <Content Include="Views\Avaliadores\Alterar.cshtml" />
+    <Content Include="Views\Avaliadores\AvaliadoresDaInstituicao.cshtml" />
+    <Content Include="Views\Avaliadores\AvaliadoresXEntidades.cshtml" />
+    <Content Include="Views\Avaliadores\Create.cshtml" />
+    <Content Include="Views\Avaliadores\Criar.cshtml" />
+    <Content Include="Views\Avaliadores\Delete.cshtml" />
+    <Content Include="Views\Avaliadores\Details.cshtml" />
+    <Content Include="Views\Avaliadores\Detalhes.cshtml" />
+    <Content Include="Views\Avaliadores\Edit.cshtml" />
+    <Content Include="Views\Avaliadores\EntidadesdoAvaliador.cshtml" />
+    <Content Include="Views\Avaliadores\Excluir.cshtml" />
+    <Content Include="Views\Avaliadores\Index.cshtml" />
+    <Content Include="Views\Avaliadores\RemoverEntidade.cshtml" />
+    <Content Include="Views\CustomRoles\Create.cshtml" />
+    <Content Include="Views\CustomRoles\Delete.cshtml" />
+    <Content Include="Views\CustomRoles\Details.cshtml" />
+    <Content Include="Views\CustomRoles\Edit.cshtml" />
+    <Content Include="Views\CustomRoles\Index.cshtml" />
+    <Content Include="Views\Emails\Example.cshtml" />
+    <Content Include="Views\Emails\Web.config" />
+    <Content Include="Views\Empresas\Alterar.cshtml" />
+    <Content Include="Views\Empresas\Create.cshtml" />
+    <Content Include="Views\Empresas\Criar.cshtml" />
+    <Content Include="Views\Empresas\Delete.cshtml" />
+    <Content Include="Views\Empresas\Details.cshtml" />
+    <Content Include="Views\Empresas\Detalhes.cshtml" />
+    <Content Include="Views\Empresas\Edit.cshtml" />
+    <Content Include="Views\Empresas\Excluir.cshtml" />
+    <Content Include="Views\Empresas\Index.cshtml" />
+    <Content Include="Views\Entidades\Alterar.cshtml" />
+    <Content Include="Views\Entidades\Create.cshtml" />
+    <Content Include="Views\Entidades\Criar.cshtml" />
+    <Content Include="Views\Entidades\Delete.cshtml" />
+    <Content Include="Views\Entidades\Details.cshtml" />
+    <Content Include="Views\Entidades\Detalhes.cshtml" />
+    <Content Include="Views\Entidades\Edit.cshtml" />
+    <Content Include="Views\Entidades\Excluir.cshtml" />
+    <Content Include="Views\Entidades\Index.cshtml" />
+    <Content Include="Views\Fiscais\Alterar.cshtml" />
+    <Content Include="Views\Fiscais\CadastrarFiscalExistente.cshtml" />
+    <Content Include="Views\Fiscais\Create.cshtml" />
+    <Content Include="Views\Fiscais\Criar.cshtml" />
+    <Content Include="Views\Fiscais\Delete.cshtml" />
+    <Content Include="Views\Fiscais\Details.cshtml" />
+    <Content Include="Views\Fiscais\Detalhes.cshtml" />
+    <Content Include="Views\Fiscais\Edit.cshtml" />
+    <Content Include="Views\Fiscais\Excluir.cshtml" />
+    <Content Include="Views\Fiscais\Index.cshtml" />
+    <Content Include="Views\Fiscais\VerificaCPF.cshtml" />
+    <Content Include="Views\Horarios\Agendamentos.cshtml" />
+    <Content Include="Views\Horarios\AgendamentosDoDia.cshtml" />
+    <Content Include="Views\Horarios\Agendar.cshtml" />
+    <Content Include="Views\Horarios\AvaliacaoPronta.cshtml" />
+    <Content Include="Views\Horarios\BuscaHorario.cshtml" />
+    <Content Include="Views\Horarios\CancelarAgendamentoConfirmado.cshtml" />
+    <Content Include="Views\Horarios\CancelarAgendamentoReservado.cshtml" />
+    <Content Include="Views\Horarios\CancelarHorarioDisponivel.cshtml" />
+    <Content Include="Views\Horarios\ConfirmarAgendamento.cshtml" />
+    <Content Include="Views\Horarios\Consulta.cshtml" />
+    <Content Include="Views\Horarios\ConsultarAgendamentoAtivo.cshtml" />
+    <Content Include="Views\Horarios\ConsultarPiloto.cshtml" />
+    <Content Include="Views\Horarios\ContatarEntidade.cshtml" />
+    <Content Include="Views\Horarios\ContatarPiloto.cshtml" />
+    <Content Include="Views\Horarios\Create.cshtml" />
+    <Content Include="Views\Horarios\Criar.cshtml" />
+    <Content Include="Views\Horarios\CriarHorarioFechado.cshtml" />
+    <Content Include="Views\Horarios\Delete.cshtml" />
+    <Content Include="Views\Horarios\Details.cshtml" />
+    <Content Include="Views\Horarios\DetalheHorario.cshtml" />
+    <Content Include="Views\Horarios\Detalhes.cshtml" />
+    <Content Include="Views\Horarios\detalheSolicitacao.cshtml" />
+    <Content Include="Views\Horarios\Edit.cshtml" />
+    <Content Include="Views\Horarios\Excluir.cshtml" />
+    <Content Include="Views\Horarios\HorarioOcupado.cshtml" />
+    <Content Include="Views\Horarios\HorariosData.cshtml" />
+    <Content Include="Views\Horarios\HorariosEntidade.cshtml" />
+    <Content Include="Views\Horarios\Index.cshtml" />
+    <Content Include="Views\Horarios\IniciarAvaliacao.cshtml" />
+    <Content Include="Views\Horarios\Painel.cshtml" />
+    <Content Include="Views\Horarios\Painel2.cshtml" />
+    <Content Include="Views\Horarios\PilotoConfirmaCancelamento.cshtml" />
+    <Content Include="Views\Horarios\RecusaSolicitacao.cshtml" />
+    <Content Include="Views\Horarios\Sent.cshtml" />
+    <Content Include="Views\Horarios\SolicitaHorario.cshtml" />
+    <Content Include="Views\Horarios\verificaSolicitacoes.cshtml" />
+    <Content Include="Views\Horarios\View.cshtml" />
+    <Content Include="Views\ImagensQuestoes\Create.cshtml" />
+    <Content Include="Views\ImagensQuestoes\Delete.cshtml" />
+    <Content Include="Views\ImagensQuestoes\Details.cshtml" />
+    <Content Include="Views\ImagensQuestoes\Edit.cshtml" />
+    <Content Include="Views\ImagensQuestoes\Index.cshtml" />
+    <Content Include="Views\LocaisEntidades\Alterar.cshtml" />
+    <Content Include="Views\LocaisEntidades\Criar.cshtml" />
+    <Content Include="Views\LocaisEntidades\Detalhes.cshtml" />
+    <Content Include="Views\LocaisEntidades\Excluir.cshtml" />
+    <Content Include="Views\LocaisEntidades\Index.cshtml" />
+    <Content Include="Views\LocaisEntidades\ListaFiliais.cshtml" />
+    <Content Include="Views\LocaisEntidades\Listar.cshtml" />
+    <Content Include="Views\Locutores\Alterar.cshtml" />
+    <Content Include="Views\Locutores\Criar.cshtml" />
+    <Content Include="Views\Locutores\Detalhes.cshtml" />
+    <Content Include="Views\Locutores\Excluir.cshtml" />
+    <Content Include="Views\Locutores\Index.cshtml" />
+    <Content Include="Views\Sotaques\Alterar.cshtml" />
+    <Content Include="Views\Sotaques\Criar.cshtml" />
+    <Content Include="Views\Sotaques\Detalhes.cshtml" />
+    <Content Include="Views\Sotaques\Excluir.cshtml" />
+    <Content Include="Views\Sotaques\Index.cshtml" />
+    <Content Include="Views\Temas\Create.cshtml" />
+    <Content Include="Views\Temas\Delete.cshtml" />
+    <Content Include="Views\Temas\Details.cshtml" />
+    <Content Include="Views\Temas\Edit.cshtml" />
+    <Content Include="Views\Temas\Index.cshtml" />
+    <Content Include="Views\TextosQuestoes\Create.cshtml" />
+    <Content Include="Views\TextosQuestoes\Delete.cshtml" />
+    <Content Include="Views\TextosQuestoes\Details.cshtml" />
+    <Content Include="Views\TextosQuestoes\Edit.cshtml" />
+    <Content Include="Views\TextosQuestoes\Index.cshtml" />
+    <Content Include="Views\VersoesOriginais\Create.cshtml" />
+    <Content Include="Views\VersoesOriginais\Delete.cshtml" />
+    <Content Include="Views\VersoesOriginais\Details.cshtml" />
+    <Content Include="Views\VersoesOriginais\Edit.cshtml" />
+    <Content Include="Views\VersoesOriginais\Index.cshtml" />
+    <Content Include="Views\PartesOriginais\Create.cshtml" />
+    <Content Include="Views\PartesOriginais\Delete.cshtml" />
+    <Content Include="Views\PartesOriginais\Details.cshtml" />
+    <Content Include="Views\PartesOriginais\Edit.cshtml" />
+    <Content Include="Views\PartesOriginais\Index.cshtml" />
+    <Content Include="Views\PedacosQuestao\Create.cshtml" />
+    <Content Include="Views\PedacosQuestao\Delete.cshtml" />
+    <Content Include="Views\PedacosQuestao\Details.cshtml" />
+    <Content Include="Views\PedacosQuestao\Edit.cshtml" />
+    <Content Include="Views\PedacosQuestao\Index.cshtml" />
+    <Content Include="Views\Pilotos\Alterar.cshtml" />
+    <Content Include="Views\Pilotos\CompletarCadastro.cshtml" />
+    <Content Include="Views\Pilotos\Create.cshtml" />
+    <Content Include="Views\Pilotos\Criar.cshtml" />
+    <Content Include="Views\Pilotos\Delete.cshtml" />
+    <Content Include="Views\Pilotos\Detalhes.cshtml" />
+    <Content Include="Views\Pilotos\Edit.cshtml" />
+    <Content Include="Views\Pilotos\Excluir.cshtml" />
+    <Content Include="Views\Pilotos\Index.cshtml" />
+    <Content Include="Views\Queries\Index.cshtml" />
+    <Content Include="Views\Questoes\Create.cshtml" />
+    <Content Include="Views\Questoes\Delete.cshtml" />
+    <Content Include="Views\Questoes\Details.cshtml" />
+    <Content Include="Views\Questoes\Edit.cshtml" />
+    <Content Include="Views\Questoes\EscolherParte.cshtml" />
+    <Content Include="Views\Questoes\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ConsultarAeronauta\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55609</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55609/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

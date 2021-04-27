@@ -1,0 +1,47 @@
+﻿@model SySDEAProject.Models.BuscaHorarioViewModel
+@{
+    ViewBag.Title = "BuscaHorario";
+}
+
+<h2>Buscar por</h2>
+
+<div>
+    <h3>Data:</h3>
+    @using (Html.BeginForm("ConsultaPorData", "Horarios", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.Label("Data", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="datefield" data-val="true" data-val-required="Date is required"
+                       id="data" name="data" type="date" value=@DateTime.Now.Date />
+                <br />
+            </div>
+            <input type="submit" value="Buscar" class="btn btn-default" />
+        </div>
+       
+    }
+</div>
+<br />
+<hr />
+<div>
+    <h3>Entidade:</h3>
+    @using (Html.BeginForm("ConsultaPorEntidade", "Horarios", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.Label("Local de prova", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idLocalEntidade", new SelectList(ViewBag.idLocalEntidade, "idLocalEntidade", "titulo"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.nomeEntidade, "", new { @class = "text-danger" })
+                
+                <br />
+            </div>
+            <input type="submit" value="Buscar" class="btn btn-default" />
+        </div>
+        <p>
+            
+        </p>
+    }
+</div>
+@Html.ActionLink("Voltar","Painel")

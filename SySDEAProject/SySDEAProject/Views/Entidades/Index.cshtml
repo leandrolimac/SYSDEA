@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SySDEAProject.Models.Entidade>
+
+@{
+    ViewBag.Title = "Entidades";
+}
+
+<h2>Entidades</h2>
+
+<p>
+    @Html.ActionLink("Nova", "Criar")
+</p>
+
+<div style="width:100%; height: 100%; overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailEntidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cnpj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.suspensa)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailEntidade)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.cnpj)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.suspensa)
+                </td>
+                <td>
+                    @Html.ActionLink("Ver filiais", "ListaFiliais", "LocaisEntidades", new { id = item.Id }, null) |
+                    @Html.ActionLink("Alterar", "Alterar", new { id = item.Id }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+    @Html.ActionLink("Voltar", "PainelUsuario", "Manage")

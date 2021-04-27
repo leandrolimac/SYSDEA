@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SySDEAProject.Models.Avaliador>
+
+@{
+    ViewBag.Title = "Avaliadores";
+}
+
+<h2>Avaliadores</h2>
+
+<p>
+    @Html.ActionLink("Novo", "Criar")
+</p>
+
+
+<div style="width:100%; height: 100%; overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoAvaliador)
+            </th>
+
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipoAvaliador, "CustomTipoAvaliador")
+                </td>
+                
+               
+                <td>
+                    @Html.ActionLink("Ver entidades","EntidadesdoAvaliador", new { id = item.Id })|
+                    @Html.ActionLink("Alterar", "Alterar", new { id = item.Id }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+    @Html.ActionLink("Voltar", "PainelUsuario", "Manage")

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SySDEAProject.Models.Horario>
+
+@{
+    ViewBag.Title = "Agenda";
+    
+    
+}
+
+<h2>Agenda</h2>
+
+
+<h3 class="text-success"> @ViewBag.StatusMessage</h3>
+@if (ViewBag.expirados != true)
+{
+@Html.ActionLink("Exibir expirados", "agendamentos", new { expirados = true })
+}
+else
+{
+    @Html.ActionLink("Não exibir expirados", "agendamentos", new { expirados = false })
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Filial")
+        </th>
+        <th>
+            Piloto
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.preco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data)
+        </th>
+        <th>
+            @Html.DisplayName("Hora")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sala)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalEntidade.titulo)
+        </td>
+        <td>
+            @if (item.Piloto != null)
+            {
+          @Html.ActionLink(item.Piloto.UserPessoa.nome, "ConsultarPiloto", new { Id = item.Piloto.Id })
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preco)
+        </td>
+        <td>
+            @item.data.Value.Date.ToShortDateString()
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data.Value.TimeOfDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status,"CustomStatusHorario")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sala)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.idHorario }) 
+           
+        </td>
+    </tr>
+}
+
+</table>

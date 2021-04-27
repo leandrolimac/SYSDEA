@@ -1,0 +1,143 @@
+﻿@model SySDEAProject.Models.Piloto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Tem certeza que deseja deletar este piloto?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+           
+        </dt>
+
+        <dd>
+            @if (Model.ImagemPiloto != null)
+            {
+                <img width="300" height="400" src="data:image;base64,@System.Convert.ToBase64String(Model.ImagemPiloto.arquivo)" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.cpf)
+        </dd>
+
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.uf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.tel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.tel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.tel2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.tel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.dataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.dataNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.Email)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CANACPiloto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANACPiloto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivelAtual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivelAtual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telContato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telContato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empresa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa.nome)
+        </dd>
+
+       
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à lista", "Index")
+        </div>
+    }
+</div>

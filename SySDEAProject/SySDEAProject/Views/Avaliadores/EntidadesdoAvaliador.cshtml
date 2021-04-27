@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SySDEAProject.Models.AvaliadorXEntidade>
+
+@{
+    ViewBag.Title = "Entidades do avaliador";
+}
+
+<h2>Entidades do avaliador @Model.First().Avaliador.UserPessoa.nome</h2>
+
+@Html.ActionLink("Novo", "AdicionarEntidade", "Avaliadores", new { Id = Model.First().Avaliador.Id }, null)
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Histórico")
+        </th>
+        <th>@Html.DisplayName("Data de início")</th>
+        <th>@Html.DisplayName("Data de fim")</th>
+        <th> </th>
+    </tr>
+
+
+    <tr>    
+        <td>
+            @foreach (var entidade in Model)
+            {
+                <div> @Html.ActionLink(entidade.Entidade.nome, "Detalhes","Entidades", new { Id = entidade.idEntidade }, null) </div>
+
+            }
+        </td>
+        <td>
+            @foreach (var entidade in Model)
+            {
+                if (entidade.dataAdmissao != null)
+                {
+                <div> @entidade.dataAdmissao.Value.ToShortDateString() </div>
+                }else
+                {
+                    <div>- </div>
+                }
+            }
+        </td>
+        <td>
+            @foreach (var entidade in Model)
+            {
+                if (entidade.dataEncerramento != null) { 
+                <div> @entidade.dataEncerramento.Value.ToShortDateString() </div>
+                }
+                else
+                {
+                    <div>- </div>
+                }
+            }
+        </td>
+        <td>
+            @foreach (var entidade in Model)
+            {
+                if (entidade.dataEncerramento == null)
+                {
+                    <div>@Html.ActionLink("Encerrar", "RemoverEntidade", "Avaliadores", new { Id = entidade.idAvaliador, idEntidade = entidade.idEntidade, idAvaliadorXEntidade = entidade.idAvaliadorXEntidade }, null)  </div>
+                }
+                else
+                {
+                    <div>- </div>
+                }
+            }
+        </td>
+    </tr>
+
+
+</table>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SySDEAProject.Models.Piloto>
+
+@{
+    ViewBag.Title = "Pilotos";
+}
+
+<h2>Pilotos</h2>
+
+<p>
+    @Html.ActionLink("Novo","Criar")
+</p>
+
+<div style="width:100%; height: 100%; overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CANACPiloto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.tel1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telContato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nivelAtual)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.nome)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CANACPiloto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.tel1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telContato)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nivelAtual)
+                </td>
+                <td>
+                    @Html.ActionLink("Alterar", "Alterar", new { id = item.Id }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+    @Html.ActionLink("Voltar", "PainelUsuario", "Manage")

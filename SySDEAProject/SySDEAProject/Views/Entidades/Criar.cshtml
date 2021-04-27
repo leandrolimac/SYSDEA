@@ -1,0 +1,214 @@
+﻿@model SySDEAProject.Models.Entidade
+
+@{
+    ViewBag.Title = "Criar";
+}
+
+<h2>Criar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Entidade</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <h4>Informações da Entidade:</h4><br/>
+        <div class="form-group">
+            @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailEntidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailEntidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailEntidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Senha", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="password" class="form-control" id="Password" name="Password" />                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cnpj, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cnpj, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cnpj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.emailELEs, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emailELEs, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.emailELEs, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.suspensa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.suspensa)
+                    @Html.ValidationMessageFor(model => model.suspensa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <br /><h4>Informações da Matriz:</h4><br />
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="titulo">Título da Matriz</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="LocalEntidade.titulo" name="LocalEntidade.titulo" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().titulo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().emailContato, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="LocalEntidade.emailContato" name="LocalEntidade.emailContato" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().emailContato, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().tel1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="LocalEntidade.tel1" id="LocalEntidade.tel1" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().tel1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().tel2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="LocalEntidade.tel2" id="LocalEntidade.tel2" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().tel2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().numeroSalas, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" class="form-control" id="LocalEntidade.Endereco.numeroSalas" name="LocalEntidade.Endereco.numeroSalas" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().numeroSalas, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().Endereco.cep, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="cep"  name="cep" onblur="pesquisacep(this.value)" value=""/>
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().Endereco.cep, "", new { @class = "text-danger" })
+            </div>
+                </div>
+
+        @Html.Partial("_PartialCEP2", "Shared")
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().Endereco.rua, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="rua" name="LocalEntidade.Endereco.rua" value=""/>
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().Endereco.rua, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().Endereco.numero, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="LocalEntidade.Endereco.numero" name="LocalEntidade.Endereco.numero" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().Endereco.numero, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().Endereco.complemento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="LocalEntidade.Endereco.complemento" name="LocalEntidade.Endereco.complemento" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().Endereco.complemento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().Endereco.bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="bairro" name="LocalEntidade.Endereco.bairro" value=""/>
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().Endereco.bairro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().Endereco.municipio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="municipio" name="LocalEntidade.Endereco.municipio" value=""/>
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().Endereco.municipio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().Endereco.uf, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="uf" name="LocalEntidade.Endereco.uf" value=""/>
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().Endereco.uf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().aceitaSolicitacoes, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input id="admin" name="LocalEntidade.aceitaSolicitacoes" type="checkbox" value="true" />
+                @Html.ValidationMessageFor(model => model.LocalEntidade.First().aceitaSolicitacoes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocalEntidade.First().suspensa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.LocalEntidade.First().suspensa)
+                    @Html.ValidationMessageFor(model => model.LocalEntidade.First().suspensa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function ()
+        {
+            
+            $("#cnpj").inputmask("mask", { "mask": "99.999.999/9999-99" }, { reverse: true });
+            $("#cnpj").inputmask({ removeMaskOnSubmit: true });
+            $("#LocalEntidade\\.tel1").inputmask("mask", { "mask": "(99) 9999-99999" }, { reverse: true });
+            $("#LocalEntidade\\.tel1").inputmask({ removeMaskOnSubmit: true });
+            $("#LocalEntidade\\.tel2").inputmask("mask", { "mask": "(99) 9999-99999" }, { reverse: true });
+            $("#LocalEntidade\\.tel2").inputmask({ removeMaskOnSubmit: true });
+
+        });
+
+    </script>
+}
+<div>
+    @Html.ActionLink("Voltar à lista", "Index")
+</div>

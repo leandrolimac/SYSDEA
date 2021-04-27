@@ -1,0 +1,40 @@
+﻿@model SySDEAProject.Models.Piloto
+@{
+    ViewBag.Title = "ContatarPiloto";
+}
+
+<h2>ContatarPiloto</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Envie um e-mail à entidade @ViewBag.entidade.nome .</h4>
+    <hr />
+
+    @Html.Hidden("idEntidade",(int) ViewBag.entidade.idEntidade);
+    <div class="form-group">
+        @Html.Label("Assunto", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBox("assunto")
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Mensagem", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextArea("mensagem", new { @class = "form-control" })
+            
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Enviar" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

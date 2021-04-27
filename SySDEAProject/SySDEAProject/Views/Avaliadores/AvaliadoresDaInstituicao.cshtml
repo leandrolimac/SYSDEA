@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SySDEAProject.Models.Avaliador>
+
+@{
+    ViewBag.Title = "Avaliadores da entidade";
+}
+
+<h2>Avaliadores da instituicao</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserPessoa.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emAtividade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoAvaliador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.suspenso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserPessoa.nome)
+        </td>      
+        <td>
+            @Html.DisplayFor(modelItem => item.emAtividade)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoAvaliador)
+        </td>      
+        <td>
+            @Html.DisplayFor(modelItem => item.suspenso)
+        </td>
+        <td>
+
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+
+        </td>
+    </tr>
+}
+
+</table>

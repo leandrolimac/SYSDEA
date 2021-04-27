@@ -1,0 +1,70 @@
+﻿@model SySDEAProject.Models.Horario
+
+@{
+    ViewBag.Title = "IniciarAvaliacao";
+}
+
+<h2>IniciarAvaliacao</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.idHorario)
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Piloto.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @if (Model.idPiloto != null)
+            {
+                @Html.DisplayFor(model => model.Piloto.UserPessoa.nome)
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.sala)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sala)
+        </dd>
+        <dt>
+            @Html.DisplayName("Horário agendado")
+        </dt>
+        <dd>
+            @Model.data
+        </dd>
+    </dl>
+</div>
+        <div class="form-horizontal">
+            
+
+            <h4>Por favor confirme os avaliadores antes de iniciar a avaliação</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h3 class="text-danger">@ViewBag.StatusMessage</h3>
+
+            <div class="form-group">
+                @Html.Label("idAvaliador1", "avaliador ELE", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idAvaliador1", null, "--Não definido--", htmlAttributes: new { @class = "form-control", @name = "idAvaliador1" })
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.Label("idAvaliador2", "Avaliador SME", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idAvaliador2", null, "--Não definido--", htmlAttributes: new { @class = "form-control", @name = "idAvaliador2" })
+                    
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Confirmar" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+}

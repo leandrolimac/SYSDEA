@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SySDEAProject.Models.Avaliacao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Horario.idHorario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VersaoProva.idVersaoProva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dthrProvaInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dthrProvaFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sucesso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Horario.idHorario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VersaoProva.idVersaoProva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dthrProvaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dthrProvaFim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sucesso)
+        </td>
+        <td>
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.idAvaliacao }) |
+            
+        </td>
+    </tr>
+}
+
+</table>
+
+<button type="submit" name="voltar" id="voltar" value="Voltar"> Voltar</button>
+</br>
+<script type="text/javascript">
+$("#voltar").click(function () {
+                $.post("/PreviousController/PreviousAction/");
+});
+</script>

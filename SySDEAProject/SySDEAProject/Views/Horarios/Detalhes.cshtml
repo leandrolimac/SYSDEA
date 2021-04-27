@@ -1,0 +1,123 @@
+﻿@model SySDEAProject.Models.Horario
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Horário</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Entidade")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalEntidade.Entidade.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Filial")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalEntidade.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Piloto.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @if (Model.idPiloto != null)
+            {
+            @Html.ActionLink(Model.Piloto.UserPessoa.nome, "ConsultarPiloto", new { id = Model.idPiloto })
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Model.data.Value.Date.ToShortDateString()
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Hora")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data.Value.TimeOfDay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status, "CustomStatusHorario")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sala)
+        </dd>
+        
+        
+        <dt>
+            @Html.DisplayName("Avaliador ELE")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ele.UserPessoa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Avaliador SME")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sme.UserPessoa.nome)
+        </dd>
+        }
+    </dl>
+</div>
+<p>   
+    @if (User.IsInRole("Entidade"))
+    {        
+    @Html.ActionLink("Voltar à lista", "Agendamentos")
+    if (Model.status == 1)
+    {
+    @Html.ActionLink("Excluir horário", "CancelarHorarioDisponivel", new { id = Model.idHorario })
+    }
+    else if (Model.status == 2)
+    {
+        <p>
+        @Html.ActionLink("Confirmar Agendamento", "ConfirmarAgendamento", new { id = Model.idHorario }) 
+        |
+        @Html.ActionLink("Cancelar Piloto", "CancelarAgendamentoReservado", new { id = Model.idHorario })
+        |
+        </p>
+    }
+    else if (Model.status == 3)
+    {
+        @Html.ActionLink("Cancelar agendamento", "CancelarAgendamentoConfirmado", new { id = Model.idHorario })            
+        }         
+    }else if (User.IsInRole("Admin"))
+    {
+        
+        @Html.ActionLink("Voltar à lista","Index")
+    }

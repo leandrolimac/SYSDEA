@@ -1,0 +1,54 @@
+﻿@model SySDEAProject.Models.Piloto
+
+@{
+    ViewBag.Title = "Informações do Piloto";
+}
+
+<h2>Informações do piloto</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagemPiloto.arquivo)
+        </dt>
+
+        <dd>
+             @if (Model.ImagemPiloto != null)
+             {
+            <img width="300" height="400" src="data:image;base64,@System.Convert.ToBase64String(Model.ImagemPiloto.arquivo)" />
+             }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CANACPiloto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANACPiloto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Contatar Piloto", "ContatarPiloto", new { id = Model.Id })
+    <br />
+    @Html.ActionLink("Voltar à lista", "Agendamentos")
+</p>

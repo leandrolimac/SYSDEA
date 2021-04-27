@@ -1,0 +1,194 @@
+﻿@model SySDEAProject.Models.Piloto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Piloto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+           
+        </dt>
+
+        <dd>
+            @if (Model.ImagemPiloto!= null)
+            {
+            <img width="300" height="400" src="data:image;base64,@System.Convert.ToBase64String(Model.ImagemPiloto.arquivo)" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.cep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.cep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.rua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.complemento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.complemento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.EnderecoPessoa.uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.EnderecoPessoa.uf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.tel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.tel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.tel2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.tel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.dataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.dataNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.Email)
+        </dd>
+
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CANACPiloto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANACPiloto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivelAtual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivelAtual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telContato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telContato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.agendamentoAtivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.agendamentoAtivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empresa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa.nome)
+        </dd>
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

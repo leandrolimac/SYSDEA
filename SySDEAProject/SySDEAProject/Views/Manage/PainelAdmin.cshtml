@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Painel de administrador";
+}
+
+<h2>Painel de administrador</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="row">
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Pilotos", "Index", "Pilotos")</h2>
+        <p>
+            Visualizar e cadastrar pilotos
+        </p>
+
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Entidades", "Index", "Entidades")</h2>
+        <p>
+            Visualizar e cadastrar entidades
+        </p>
+
+    </div>
+
+        <div class="col-md-4">
+            <h2>@Html.ActionLink("Fiscais", "Index", "Fiscais")</h2>
+            <p>
+                Visualizar e cadastrar fiscais
+            </p>
+
+        </div>
+        <div class="col-md-4">
+            <h2>@Html.ActionLink("Avaliadores", "Index", "Avaliadores")</h2>
+            <p>
+                Visualizar e cadastrar avaliadores
+            </p>
+
+        </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Alterar senha", "ChangePassword", "Manage")</h2>
+    </div>
+ </div>

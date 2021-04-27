@@ -1,0 +1,65 @@
+﻿@model SySDEAProject.Models.Horario
+
+@{
+    ViewBag.Title = "Confirmar Cancelamento";
+}
+
+<h2>Confirmar Cancelamento</h2>
+
+<h3></h3>
+<div>
+    <h4>A Entidade @Model.LocalEntidade.Entidade.nome solicitou o cancelamento de seu horário confirmado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Local
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalEntidade.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Model.data.Value.Date.ToShortDateString()
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Hora")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data.Value.TimeOfDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sala)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.idHorario)
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirmar" class="btn btn-default" />  ou 
+            @Html.ActionLink("Enviar uma mensagem à instituição", "contatarEntidade", new { idEntidade = Model.LocalEntidade.idEntidade }) |
+            @Html.ActionLink("Voltar ao painel", "PainelPiloto", "Manage")
+        </div>
+    }
+</div>

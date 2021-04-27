@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SySDEAProject.Models.Avaliador>
+
+@{
+    ViewBag.Title = "Avaliadores e entidades";
+}
+
+<h2>Avaliadores</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserPessoa.nome)
+        </th>
+        <th>
+            @Html.DisplayName("Histórico")
+        </th>
+        <th>@Html.DisplayName("Data de início")</th>
+        <th>@Html.DisplayName("Data de fim")</th>
+        <th> </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserPessoa.nome)
+        </td>       
+        <td>
+            @foreach (var entidade in item.Avaliador_Entidade)
+            {
+                <div> @Html.ActionLink(entidade.Entidade.nome, "Detalhes","Entidades", new { Id = entidade.idEntidade }, null) </div>
+
+            }
+        </td>
+        <td>
+            @foreach (var entidade in item.Avaliador_Entidade)
+            {
+                if (entidade.dataAdmissao != null)
+                {
+                <div> @entidade.dataAdmissao.ToString() </div>
+                }else
+                {
+                    <div>- </div>
+                }
+            }
+        </td>
+        <td>
+            @foreach (var entidade in item.Avaliador_Entidade)
+            {
+                if (entidade.dataEncerramento != null) { 
+                <div> @entidade.dataEncerramento.ToString() </div>
+                }
+                else
+                {
+                    <div>- </div>
+                }
+            }
+        </td>
+        <td>
+            @foreach (var entidade in item.Avaliador_Entidade)
+            {
+                if (entidade.dataEncerramento == null)
+                {
+                    <div>@Html.ActionLink("Encerrar", "RemoverEntidade", "Avaliadores", new { Id = entidade.idAvaliador, idEntidade = entidade.idEntidade }, null)  </div>
+                }
+                else
+                {
+                    <div>- </div>
+                }
+            }
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,32 @@
+﻿@model System.Nullable<Int32>
+
+@if (Model == 1)
+{
+    @:Disponível
+}
+else if (Model == 2)
+{
+    @:Reservado
+}
+else if (Model == 3)
+{
+    @:Confirmado
+}
+else if (Model == 4)
+{
+    @: Em cancelamento
+}else if(Model == 5)
+{
+    @: Avaliação já iniciada
+}
+else if (Model == 6)
+{
+    @: Expirado
+}
+else if (Model == 7)
+{
+    @:Pronto para Início
+}else if(Model == 8)
+{
+    @:Prova Encerrada
+}

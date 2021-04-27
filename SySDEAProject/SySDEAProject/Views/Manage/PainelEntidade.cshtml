@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Painel de Entidade";
+}
+
+<h2>Entidade</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Agendamentos", "agendamentos", "Horarios")</h2>
+        <p>
+            Visualizar agenda da entidade
+        </p>
+    </div>
+    <div class="col-md-4">
+         <h2>@Html.ActionLink("Novo Horário", "Create", "Horarios")</h2>
+        <p>
+            Criar novo horário para agendamento
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Consultar avaliadores", "AvaliadoresDaInstituicao", "Avaliadores")</h2>
+        <p>
+            Visualizar avaliadores da instituição
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Verificar Solicitações", "verificaSolicitacoes", "Horarios")</h2>
+        <p>
+            Lista os pedidos de horários feitos por pilotos
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Configurações", "configuracoesEntidade", "Manage")</h2>
+        <p>
+           
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Alterar senha", "ChangePassword", "Manage")</h2>
+    </div>
+</div>

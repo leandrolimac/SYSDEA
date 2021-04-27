@@ -1,0 +1,105 @@
+﻿@model IEnumerable<SySDEAProject.Models.Horario>
+
+
+@{
+    ViewBag.Title = "Painel";
+}
+
+<h2>Painel</h2>
+
+
+    <div class="row">
+        @for (var i = 0; i < ViewBag.numeroEntidades; i++)
+        {
+
+            <div class="col-md-4">
+
+                @Html.ActionLink((string)ViewBag.entidades[i].nome, "Painel", "Horarios", new { idEntidade = (int)ViewBag.entidades[i].Id }, null)
+            </div>
+        }
+
+        <div class="col-md-4">
+            @Html.ActionLink("TODAS", "Painel")
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Disponíveis", "Painel", new { disponiveis = true })
+            
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Buscar", "BuscaHorario")
+        </div>
+    </div>
+
+<div style="width:100%; height: 100%; overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                Entidade
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalEntidade.titulo)
+            </th>
+
+            <th>
+                @Html.DisplayName("Preço")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            
+            <th>
+                @Html.DisplayName("Hora")
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.sala)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+
+                var color = "#fff";
+                if (item.status == 2)
+                {
+                    color = "#FF8000";
+                }
+                else if (item.status == 1)
+                {
+                    color = "green";
+                }
+
+                <tr style="center;background-color: @color">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocalEntidade.Entidade.nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocalEntidade.titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.preco)
+                    </td>
+                    <td>
+                        @item.data.Value.Date.ToShortDateString()
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem =>item.data.Value.TimeOfDay)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sala)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Detalhes", "DetalheHorario", new { id = item.idHorario }) |
+                    </td>
+                </tr>
+        }
+    </table>
+</div>
+
+
+@Html.ActionLink("Voltar", "PainelUsuario", "Manage")<br />
+Clique @Html.ActionLink("aqui", "solicitaHorario") para informar uma entidade desejada sobre sua intenção de prestar o exame num determinado horário
+<br /> último horário inserido: @ViewBag.LastModified

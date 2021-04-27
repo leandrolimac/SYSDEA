@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SySDEAProject.Models.Fiscal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Fiscais</h2>
+
+<p>
+    @Html.ActionLink("Novo", "Criar")
+</p>
+
+<div style="width:100%; height: 100%; overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.Endereco.municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.Endereco.uf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.tel1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPessoa.dataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.siape)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.Endereco.municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.Endereco.uf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.tel1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPessoa.dataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.siape)
+                </td>
+                <td>
+                    @Html.ActionLink("Alterar", "Alterar", new { id = item.Id }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+    @Html.ActionLink("Voltar", "PainelUsuario", "Manage")
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jquerymask")
+    }

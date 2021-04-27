@@ -1,0 +1,55 @@
+﻿<div class="wrapper" role="main">
+    <div class="container">
+
+        @{
+            ViewBag.Title = "Map";
+        }
+
+        <h2>@ViewBag.Message</h2>
+
+        <div class="documentDescription">Uma visão geral do conteúdo disponível no site. Mantenha o ponteiro do mouse sobre o item por alguns segundos para visualizar sua descrição.</div>
+
+        <div id="content-core">
+            <ul id="portal-sitemap" class="navTreeLevel0 visualNoMarker">
+                <li class="navTreeItem visualNoMarker">
+
+                    @Html.ActionLink("Menu de Relevância", "Map", "home", null,
+                     new { title = "Menu de Relevância à Navegação (Do topo do site)" })
+
+                    <ul class="navTree navTreeLevel2">
+                        <li class="navTreeItem visualNoMarker">
+
+                            @Html.ActionLink("Sobre", "About", "home", null,
+             new { title = "Sobre o sistema SySDEA" })
+
+                        <li>
+                            @Html.ActionLink("Contato", "Contact", "home", null,
+                     new { title = "Entre em contato com o sistema SySDEA" })
+                        </li>
+
+
+                        <li>
+                            @Html.ActionLink("Log in", "Login", "Account", null,
+                     new { title = "Área de login do sistema" })
+                        </li>
+
+                    </ul>
+        </div>
+
+
+        <ul id="portal-sitemap" class="navTreeLevel0 visualNoMarker">
+            <li class="navTreeItem visualNoMarker">
+                @Html.ActionLink("Sobre o SDEA", "Map", "home", null,
+                     new { title = "Sobre a prova Santos Dumont English Assessment" })
+
+
+                <ul class="navTree navTreeLevel2">
+                    <li class="navTreeItem visualNoMarker">
+
+                        <a href="http://www.anac.gov.br/assuntos/setor-regulado/profissionais-da-aviacao-civil/paginas-complementares/santos-dumont-english-assessment-sdea" title="Veja aqui mais sobre o Santos Dumont English Assessment" target="_blank">Mais sobre o SDEA </a>
+                        
+                     </li>
+                </ul>
+        </ul>
+    </div>
+</div>

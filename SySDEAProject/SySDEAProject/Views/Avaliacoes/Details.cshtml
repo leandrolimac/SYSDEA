@@ -1,0 +1,98 @@
+﻿@model SySDEAProject.Models.Avaliacao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Avaliacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Horario.idHorario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Horario.idHorario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalEntidade.emailContato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalEntidade.emailContato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.providenciasExtras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.providenciasExtras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VersaoProva.idVersaoProva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VersaoProva.idVersaoProva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dthrProvaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dthrProvaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dthrProvaFim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dthrProvaFim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dthrEnvioDados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dthrEnvioDados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.possuiRecurso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.possuiRecurso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sucesso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sucesso)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idAvaliacao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

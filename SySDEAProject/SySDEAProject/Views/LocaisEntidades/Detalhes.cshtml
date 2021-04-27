@@ -1,0 +1,120 @@
+﻿@model SySDEAProject.Models.LocalEntidade
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LocalEntidade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Entidade.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entidade.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.rua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.complemento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.complemento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.uf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroSalas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroSalas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suspensa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suspensa)
+        </dd>
+
+    </dl>
+</div>
+@if (User.IsInRole("Admin") || User.IsInRole("Fiscal")){
+<p>
+    @Html.ActionLink("Alterar", "Alterar", new { id = Model.idLocalEntidade }) |
+    @Html.ActionLink("Voltar à lista", "Index")
+</p>
+    }
+@if (User.IsInRole("Entidade"))
+{
+    @Html.ActionLink("Voltar à lista", "Listar")
+}

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SySDEAProject.Models.Avaliacao>
+@{
+    ViewBag.Title = "Avaliacoes em progresso";
+}
+
+<h2>Avaliacoes em progresso</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Horario.idHorario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalEntidade.emailContato)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.VersaoProva.idVersaoProva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observacoes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dthrProvaInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dthrProvaFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dthrEnvioDados)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.possuiRecurso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sucesso)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Horario.idHorario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalEntidade.emailContato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VersaoProva.idVersaoProva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.observacoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dthrProvaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dthrProvaFim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dthrEnvioDados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.possuiRecurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sucesso)
+            </td>
+            <td>
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.idAvaliacao }) | 
+                @Html.ActionLink("Encerrar","EncerrarAvaliacao", new {  id = item.idAvaliacao})|
+            </td>
+        </tr>
+    }
+
+</table>

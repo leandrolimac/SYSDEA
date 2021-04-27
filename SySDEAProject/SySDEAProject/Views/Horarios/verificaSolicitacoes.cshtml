@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SySDEAProject.Models.SolicitacaoHorario>
+
+@{
+    ViewBag.Title = "Solicitações de horários";
+}
+
+<h2>Solicitações de horários</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Local
+        </th>
+        <th>
+            Nome do Piloto
+        </th>
+        <th>
+            Data
+        </th>
+        <th>
+            Hora 1
+        </th>
+        <th>
+            Hora 2
+        </th>
+        <th>
+            Hora 3
+        </th>
+        <th>
+            Observações
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalEntidade.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piloto.UserPessoa.nome)
+        </td>
+        <td>
+            @item.hora1.Date.ToShortDateString()
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora1.TimeOfDay) 
+                @if (item.hora1 > DateTime.Now)
+                {
+            @Html.ActionLink("Agendar", "agendaSolicitacao", new { id = item.idSolicitacao, nh=1 })
+                }
+        </td>
+        <td>
+            @if (item.hora2 != null)
+            {
+            @Html.DisplayFor(modelItem => item.hora2.Value.TimeOfDay)
+                if (item.hora2.Value > DateTime.Now)
+                {
+            @Html.ActionLink("Agendar", "agendaSolicitacao", new { id = item.idSolicitacao, nh = 2 })
+                }
+            }
+        </td>
+        <td>
+            @if (item.hora3 != null)
+            {
+            @Html.DisplayFor(modelItem => item.hora3.Value.TimeOfDay)
+                if (item.hora3.Value > DateTime.Now)
+                {
+            @Html.ActionLink("Agendar", "agendaSolicitacao", new { id = item.idSolicitacao, nh = 3 })
+                }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observacoes)
+        </td>
+        <td>
+            @Html.ActionLink("Detalhes","DetalheSolicitacao", new { id = item.idSolicitacao })
+        </td>
+    </tr>
+}
+
+</table>

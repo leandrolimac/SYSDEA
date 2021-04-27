@@ -1,0 +1,103 @@
+﻿@model IEnumerable<SySDEAProject.Models.LocalEntidade>
+
+@{
+    ViewBag.Title = "Filiais";
+}
+
+<h2>Filiais</h2>
+
+<p>
+    @Html.ActionLink("Nova", "Criar")
+</p>
+
+<div style="width:100%; height: 100%; overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Entidade")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco.rua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco.numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco.complemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco.bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco.municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco.uf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numeroSalas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.suspensa)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entidade.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tel1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tel2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.rua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.complemento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.uf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numeroSalas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.suspensa, "CustomBoolSimNao")
+                </td>
+                <td>
+                    @Html.ActionLink("Alterar", "Alterar", new { id = item.idLocalEntidade }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.idLocalEntidade }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.idLocalEntidade })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

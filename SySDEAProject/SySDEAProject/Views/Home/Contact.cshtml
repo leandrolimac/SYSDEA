@@ -1,0 +1,69 @@
+﻿@using BotDetect.Web.Mvc
+@model SySDEAProject.Models.EmailFormModel
+@{
+    ViewBag.Title = "Contato";
+}
+<head>
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+        </head>
+<br /><br /><br />
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Envie seus comentários.</h4>
+
+    <div class="form-group">
+        @Html.Label("Nome remetente", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FromName)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Email remetente", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FromEmail)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Mensagem", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Message)
+        </div>
+    </div>
+    <br/>
+
+    <div class="form-group">
+
+        @Html.Label("Código de confirmação", new { @class = "col-md-2 control-label" })
+
+        <div class="col-md-10">
+            @{
+                MvcCaptcha ContactCaptcha = new MvcCaptcha("ContactCaptcha");
+
+                ContactCaptcha.UserInputID = "CaptchaCode";
+                ContactCaptcha.SoundEnabled = false;
+            }
+            @Html.TextBox("CaptchaCode", null, new { @class = "form-control" })
+            @Html.Captcha(ContactCaptcha)
+        </div>
+
+    </div>
+        
+           
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Enviar" />
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

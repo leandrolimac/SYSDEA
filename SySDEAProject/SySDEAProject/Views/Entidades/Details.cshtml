@@ -1,0 +1,82 @@
+﻿@model SySDEAProject.Models.Entidade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Entidade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EntidadeLogin.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntidadeLogin.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailRepAdm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailRepAdm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailELEs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailELEs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cnpj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cnpj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suspensa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suspensa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idEntidade }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

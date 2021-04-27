@@ -1,0 +1,57 @@
+﻿@model SySDEAProject.Models.Avaliacao
+@{
+    ViewBag.Title = "EncerrarAvaliacao";
+}
+
+<h2> Tem certeza que deseja encerrar a avaliação?</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.idAvaliacao)
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Piloto.UserPessoa.nome)
+            </dt>
+
+            <dd>
+                
+                    @Html.DisplayFor(model => model.Piloto.UserPessoa.nome)
+                
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Horario.sala)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Horario.sala)
+            </dd>
+            <dt>
+                @Html.DisplayName("Horário agendado")
+            </dt>
+            <dd>
+                @Model.Horario.data
+            </dd>
+            <dt>
+                @Html.DisplayName("Horário de início")
+            </dt>
+            <dd>
+                @Model.dthrProvaInicio
+            </dd>
+        </dl>
+        <div class="form-group">
+            <input type="checkbox" name="sucesso" id="sucesso" value="Sucesso?" />
+        </div>
+        <div class="form-group">
+            <textarea rows="10" cols="127" name="observacoes"></textarea>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Encerrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+

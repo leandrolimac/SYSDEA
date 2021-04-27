@@ -1,0 +1,90 @@
+﻿@model SySDEAProject.Models.Avaliador
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Avaliador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPessoa.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPessoa.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtInicioAtividade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtInicioAtividade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emAtividade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emAtividade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataDeValidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataDeValidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipoAvaliador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoAvaliador, "CustomTipoAvaliador")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtConclusaoCurso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtConclusaoCurso)
+        </dd>
+
+        @foreach(var item in Model.Avaliador_Entidade)
+        {
+            <dt>Entidade:</dt>
+            <dd>@Html.ActionLink(item.Entidade.nome, "Detalhes", "Entidades", new { Id = item.idEntidade }, null) </dd>
+        }
+    </dl>
+</div>
+
+    @if (User.IsInRole("Admin")) {
+        <p>
+        @Html.ActionLink("Alterar", "Alterar", new { id = Model.Id }); 
+        @Html.ActionLink("Voltar à lista", "Index");
+        </P>
+    }
+
+    @if (User.IsInRole("Entidade"))
+    {
+        <p>
+        @Html.ActionLink("Voltar à lista", "AvaliadoresDaInstituicao")
+        </p>
+    }
+

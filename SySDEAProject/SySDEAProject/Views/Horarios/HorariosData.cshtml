@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SySDEAProject.Models.Horario>
+
+@{
+    ViewBag.Title = "ConsultaHorarios";
+}
+
+
+<h2>Horarios para @Model.First().data.Value.ToShortDateString()</h2>
+
+<table class="table">
+    <tr>
+        <th> Entidade </th>
+        <th>Filial</th>
+        <th>
+            @Html.DisplayNameFor(model => model.data.Value.TimeOfDay)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        var color = "#fff";
+        if(item.status == 3)
+        {
+            color = "red";
+        }
+        if (item.status == 2)
+        {
+            color = "orange";
+        }
+        else if (item.status == 1)
+        {
+            color = "green";
+        }
+
+        <tr >
+            <td>@item.LocalEntidade.Entidade.nome</td>
+            <td>@item.LocalEntidade.titulo</td>
+
+            <td >
+                <div >
+                @Html.ActionLink(item.data.Value.TimeOfDay.ToString(), "DetalheHorario", new { id = item.idHorario }, new { @style = "color:"+color }) 
+                 </div>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Voltar", "BuscaHorario")
+

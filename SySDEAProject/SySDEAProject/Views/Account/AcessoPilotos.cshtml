@@ -1,0 +1,59 @@
+﻿@using BotDetect.Web.Mvc
+@{
+    ViewBag.Title = "Primeiro Acesso";
+}
+
+<br /><br /><br /><br />
+
+<h2>Primeiro Acesso de pilotos</h2>
+@using (Html.BeginForm("AcessoPilotos", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+    @Html.AntiForgeryToken()
+                
+                <hr />               
+                <p class="text-danger">@ViewBag.codErro</p>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("CANAC", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="canacstring" id="canacstring" />
+                        
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("CPF", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="email" id="email" />
+                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    @Html.Label("Código de confirmação", new { @class = "col-md-2 control-label" })
+
+                    <div class="col-md-10">
+                        @{
+                            MvcCaptcha AcessoPilotoCaptcha = new MvcCaptcha("AcessoPilotoCaptcha");
+
+                            AcessoPilotoCaptcha.UserInputID = "CaptchaCode";
+                            AcessoPilotoCaptcha.SoundEnabled = false;
+                        }
+                        @Html.TextBox("CaptchaCode", null, new { @class = "form-control" })
+                        @Html.Captcha(AcessoPilotoCaptcha)
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Enviar" class="btn btn-default" />
+                    </div>
+                </div>
+
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+}

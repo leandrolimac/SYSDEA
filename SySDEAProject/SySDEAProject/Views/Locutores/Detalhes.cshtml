@@ -1,0 +1,58 @@
+﻿@model SySDEAProject.Models.Locutor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Locutor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ocupacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ocupacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Alterar", new { id = Model.idLocutor }) |
+    @Html.ActionLink("Voltar à lista", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model SySDEAProject.Models.ImagemQuestao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ImagemQuestao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idQuestao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idQuestao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroOrdem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroOrdem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagem)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPedacoQuestao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

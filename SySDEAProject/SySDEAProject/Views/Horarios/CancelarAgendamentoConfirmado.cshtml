@@ -1,0 +1,80 @@
+﻿@model SySDEAProject.Models.Horario
+
+@{
+    ViewBag.Title = "Cancelar Agendamento Confirmado";
+}
+
+<h2>Cancelar Agendamento Confirmado</h2>
+
+<h3>Tem certeza que deseja cancelar este agendamento?</h3>
+<div>
+    <h4>Horário</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            Local
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocalEntidade.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Piloto.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Piloto.UserPessoa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Model.data.Value.Date.ToShortDateString()
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Hora")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data.Value.TimeOfDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sala)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.TextArea("justificativa");
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à lista", "Agendamentos")
+        </div>
+    }
+</div>

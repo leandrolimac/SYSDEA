@@ -1,0 +1,75 @@
+﻿@model IEnumerable<List<List<List<SySDEAProject.Models.Horario>>>>
+
+@{
+    ViewBag.Title = "Painel2";
+}
+
+<h2>Painel2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            Segunda
+        </th>
+        <th>
+            terça
+        </th>
+        <th>
+            Quarta
+        </th>
+        <th>
+            Quinta
+        </th>
+        <th>
+            Sexta
+        </th>
+        
+        <th></th>
+    </tr>
+
+
+    <tr>
+@foreach (var local in ViewBag.locaisEntidades)
+{
+        <tr>
+            <td>
+            @local.titulo.ToString()
+            </td>
+        </tr>
+}
+       @*
+
+
+     <td>
+        @Html.DisplayFor(modelItem => item.Piloto.nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.preco)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.data)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.hora)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.sala)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id=item.idHorario }) |
+        @Html.ActionLink("Details", "Details", new { id=item.idHorario }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.idHorario })
+    </td>
+    </tr>*@
+}
+
+</table>

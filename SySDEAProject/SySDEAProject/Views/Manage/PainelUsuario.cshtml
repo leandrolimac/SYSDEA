@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SySDEAProject.Models.CustomUserRole>
+@{
+    ViewBag.Title = "Painel do Usuário";
+}
+<h2>Painel do Usuário</h2>
+<h3 class="text-success">@ViewBag.StatusMessage</h3>
+
+@foreach (var item in Model)
+{
+    <hr />
+    switch (item.CustomRole.Name) {
+        case "Piloto"://Piloto
+            Html.RenderPartial("PartialPainelPiloto");
+            break;
+        case "Admin"://Admin
+            Html.RenderPartial("PartialPainelAdmin");
+            break;
+        case "Fiscal": //Fiscal
+            Html.RenderPartial("PartialPainelFiscal");
+            break;
+        case "Avaliador"://Avaliador
+            Html.RenderPartial("PartialPainelAvaliador");
+            break;
+        case "Entidade"://Entidade
+            Html.RenderPartial("PartialPainelEntidade");
+            break;
+    }
+
+}
+<hr />
+        
+       @if (Model.Any(m => m.RoleId == 1 || m.RoleId == 5)==false)
+       {
+        <h2>@Html.ActionLink("Cadastrar-se como piloto", "CadastroPiloto")</h2>
+        
+       }
+
+<br/>
+   <h2>@Html.ActionLink("Alterar senha", "ChangePassword", "Manage")</h2>
+

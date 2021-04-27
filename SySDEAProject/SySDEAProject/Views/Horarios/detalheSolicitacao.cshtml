@@ -1,0 +1,83 @@
+﻿@model SySDEAProject.Models.SolicitacaoHorario
+
+@{
+    ViewBag.Title = "detalheSolicitacao";
+}
+
+<h2>detalheSolicitacao</h2>
+
+<div>
+    <h4>SolicitacaoHorario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalEntidade.titulo )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalEntidade.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Piloto.UserPessoa.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Piloto.UserPessoa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Dia")
+        </dt>
+
+        <dd>
+            @Model.hora1.Date.ToShortDateString()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora1)
+            @Html.ActionLink("Agendar", "agendaSolicitacao", new { id = Model.idSolicitacao, nh = 1 })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora2)
+            @if (Model.hora2 != null)
+            {
+            @Html.ActionLink("Agendar", "agendaSolicitacao", new { id = Model.idSolicitacao, nh = 2 })
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora3)
+            @if (Model.hora3 != null)
+            {
+            @Html.ActionLink("Agendar", "agendaSolicitacao", new { id = Model.idSolicitacao, nh = 3 })
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacoes)
+        </dd>
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Recusar solicitação", "RecusaSolicitacao", new { id = Model.idSolicitacao }) |
+    @Html.ActionLink("Voltar à lista", "Agendamentos")
+</p>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SySDEAProject.Models.Sotaque>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Novo", "Criar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoA1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoA1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id=item.idSotaque }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.idSotaque }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.idSotaque })
+        </td>
+    </tr>
+}
+
+</table>

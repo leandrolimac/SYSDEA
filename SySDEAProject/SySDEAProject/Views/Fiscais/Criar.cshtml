@@ -1,0 +1,187 @@
+﻿@model SySDEAProject.Models.Fiscal
+
+@{
+    ViewBag.Title = "Criar fiscal";
+}
+
+<h2>Criar fiscal</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Fiscal</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.nome, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Password, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Email, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+        @if (ViewBag.cpf!= null){ 
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.cpf, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="UserPessoa.cpf" id="UserPessoa.cpf" value="@ViewBag.cpf" disabled/>
+                
+                @Html.ValidationMessageFor(model => model.UserPessoa.cpf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserPessoa.cpf, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input class="form-control" type="text" name="UserPessoa.cpf" id="UserPessoa.cpf" value="@ViewBag.cpf"/>
+
+                    @Html.ValidationMessageFor(model => model.UserPessoa.cpf, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Endereco.cep, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Endereco.cep, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Endereco.cep, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Endereco.rua, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Endereco.rua, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Endereco.rua, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Endereco.numero, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Endereco.numero, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Endereco.numero, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Endereco.complemento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Endereco.complemento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Endereco.complemento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Endereco.bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Endereco.bairro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Endereco.bairro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Endereco.municipio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Endereco.municipio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Endereco.municipio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.Endereco.uf, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPessoa.Endereco.uf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPessoa.Endereco.uf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.tel1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="userPessoa.tel1" id="userPessoa.tel1" />
+                @Html.ValidationMessageFor(model => model.UserPessoa.tel1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPessoa.tel2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="userPessoa.tel2" id="userPessoa.tel2" />
+                @Html.ValidationMessageFor(model => model.UserPessoa.tel2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Data de Nascimento", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="datefield" data-val="true" data-val-required="Date is required"
+                       id="dataNascimento" data-date-format="dd-MM-yyyy" placeholder="dd-MM-yyyy" name="dataNascimento" type="date" value="@ViewBag.dataNascimento.Year.ToString("0000")-@ViewBag.dataNascimento.Month.ToString("00")-@ViewBag.dataNascimento.Day.ToString("00")" />
+                @Html.ValidationMessageFor(model => model.UserPessoa.dataNascimento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.siape, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.siape, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.siape, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.administrador, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input id="admin" name="administrador" type="checkbox" value="true"/>
+                @Html.ValidationMessageFor(model => model.administrador, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    <script>
+        $(document).ready(function ()
+        {
+
+            $("#UserPessoa\\.cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+            $("#UserPessoa\\.cpf").inputmask({ removeMaskOnSubmit: true });
+            $("#userPessoa\\.tel1").inputmask("mask", { "mask": "(99) 9999-99999" }, { reverse: true });
+            $("#userPessoa\\.tel1").inputmask({ removeMaskOnSubmit: true });
+            $("#userPessoa\\.tel2").inputmask("mask", { "mask": "(99) 9999-99999" }, { reverse: true });
+            $("#userPessoa\\.tel2").inputmask({ removeMaskOnSubmit: true });
+
+        });
+
+    </script>
+
+}
+<div>
+    @Html.ActionLink("Voltar à lista", "Index")
+</div>
+

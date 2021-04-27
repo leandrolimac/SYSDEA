@@ -1,0 +1,138 @@
+﻿@model SySDEAProject.Models.AtribuirNotaViewModel
+
+@{
+    ViewBag.Title = "Atribuição de notas";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h3>Atribuição de notas</h3>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <h4>Informações Gerais</h4>    
+
+    <div class="form-horizontal">
+            @Html.LabelFor(model => model.canacpiloto)
+            @Html.EditorFor(model => model.canacpiloto, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.canacpiloto, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.nome)
+            @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.entidade)
+            @Html.EditorFor(model => model.entidade, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.entidade, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.numeroCandidato)
+            @Html.EditorFor(model => model.numeroCandidato, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.canacpiloto, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.dataProva)
+            @Html.EditorFor(model => model.dataProva, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.dataProva, "", new { @class = "text-danger" })
+        </div>
+
+        <h4> Notas </h4>
+
+         if(Model.ele != null)
+         {
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.ele)
+            @Html.EditorFor(model => model.ele, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.ele, "", new { @class = "text-danger" })
+        </div>
+         }
+         if (Model.sme != null)
+         {
+            <div class="form-horizontal">
+                @Html.LabelFor(model => model.sme)
+                @Html.EditorFor(model => model.sme, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.sme, "", new { @class = "text-danger" })
+            </div>
+    }
+
+
+    List<SySDEAProject.Models.NivelSDEA> niveisSySDEA = new List<SySDEAProject.Models.NivelSDEA>()
+            {
+                new SySDEAProject.Models.NivelSDEA() {nivelAtual = 0 ,descricao ="Sem nível" },
+                new SySDEAProject.Models.NivelSDEA() {nivelAtual = 1 ,descricao ="Nível 1" },
+                new SySDEAProject.Models.NivelSDEA() {nivelAtual = 2 ,descricao ="Nível 2" },
+                new SySDEAProject.Models.NivelSDEA() {nivelAtual = 3 ,descricao ="Nível 3" },
+                new SySDEAProject.Models.NivelSDEA() {nivelAtual = 4 ,descricao ="Nível 4" },
+                new SySDEAProject.Models.NivelSDEA() {nivelAtual = 5 ,descricao ="Nível 5" },
+                new SySDEAProject.Models.NivelSDEA() {nivelAtual = 7 ,descricao ="Nível 5+" }
+            };
+    SelectList niveis = new SelectList(niveisSySDEA, "nivelAtual", "descricao");
+
+        <div class="form-horizontal">
+        @Html.LabelFor(model => model.pronuncia)
+        @Html.DropDownList("pronuncia",  niveis, htmlAttributes: new { @class = "form-control", @OnChange = "mudaGeral()" });       
+        @Html.ValidationMessageFor(model => model.pronuncia, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.estrutura)
+            @Html.EditorFor(model => model.estrutura, new { htmlAttributes = new { @class = "form-control", @OnChange = "mudaGeral()" } })
+            
+            @Html.ValidationMessageFor(model => model.estrutura, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.vocabulario)
+            @Html.DropDownList("vocabulario", niveis, htmlAttributes: new { @class = "form-control", @OnChange = "mudaGeral()" });            
+            @Html.ValidationMessageFor(model => model.vocabulario, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.fluencia)
+            @Html.DropDownList("fluencia", niveis, htmlAttributes: new { @class = "form-control", @OnChange = "mudaGeral()" });
+            
+            @Html.ValidationMessageFor(model => model.fluencia, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.compreensao)
+            @Html.DropDownList("compreensao", niveis, htmlAttributes: new { @class = "form-control", @OnChange = "mudaGeral()" });
+            @Html.ValidationMessageFor(model => model.compreensao, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.interacao)
+            @Html.DropDownList("interacao", niveis, htmlAttributes: new { @class = "form-control", @OnChange = "mudaGeral()" });
+            @Html.ValidationMessageFor(model => model.interacao, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-horizontal">
+            @Html.LabelFor(model => model.geral)
+            @Html.DropDownList("geral", niveis, htmlAttributes: new { @class = "form-control", @OnChange = "mudaGeral()" });
+            @Html.ValidationMessageFor(model => model.geral, "", new { @class = "text-danger" })
+        </div>
+        
+}
+
+<script type="text/javascript">
+    function mudaGeral() {
+        var pronuncia = parseInt($("#pronuncia").val());
+        var estrutura = parseInt($("#estrutura").val());
+        var vocabulario = parseInt($("#vocabulario").val()); 
+        var fluencia =  parseInt($("#fluencia").val());
+        var compreensao = parseInt($("#compreensao").val());
+        var interacoes = parseInt($("#interacoes").val());
+
+        var geral = Math.min(pronuncia, estrutura, vocabulario, fluencia, compreensao, interacoes);
+
+        $("#Geral").val(geral);
+    
+    }
+</script>

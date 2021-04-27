@@ -1,0 +1,65 @@
+﻿@model SySDEAProject.Models.Entidade
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<h3>Tem certeza que deseja excluir esta entidade?</h3>
+<div>
+    <h4>Entidade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailEntidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailEntidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailELEs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailELEs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cnpj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cnpj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suspensa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suspensa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à lista", "Index")
+        </div>
+    }
+</div>

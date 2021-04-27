@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SySDEAProject.Models.Empresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nova", "Criar")
+</p>
+
+<div style="width:100%; height: 100%; overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tel1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tel2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.ActionLink("Alterar", "Alterar", new { id = item.idEmpresa }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.idEmpresa }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.idEmpresa })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+    @Html.ActionLink("Voltar", "PainelUsuario", "Manage")

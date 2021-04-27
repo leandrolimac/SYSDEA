@@ -1,0 +1,59 @@
+﻿@model SySDEAProject.Models.Entidade
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Entidade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailEntidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailEntidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailELEs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailELEs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cnpj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cnpj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suspensa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suspensa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Alterar", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar à lista", "Index")
+</p>
